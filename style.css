@@ -51,13 +51,11 @@
     .logo{
         display:flex;
         height:100px; 
-        margin:20px;
         border-radius:30px;
              
     }
     .logo .mark{
-        width:44px;
-        height:44px;
+        
         border-radius:10px;
         background:#fff8f2;
         color:var(--green-700);
