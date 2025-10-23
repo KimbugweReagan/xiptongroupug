@@ -107,8 +107,8 @@
         font-weight:700;
     }
     .btn-primary{
-        background:var(--green-500);
-        color:#fff;
+        background:var(--green-700);
+        color:var(--tan);
     }
     .btn-ghost{
         background:transparent;
