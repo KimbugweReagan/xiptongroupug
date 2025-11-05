@@ -24,14 +24,18 @@
         <div class="logo">
          <img src="./images/Xipton logo1.png"/>
         </div>
-        <div class="nav-links">
+        <div class="nav-links" id="mobile-menu">
           <a href="#about">About</a>
-          <a href="#services">Our Work</a>
-          <a href="#sustainability">Sustainability</a>
+          <a href="#services">Services</a>
+          <a href="#impact">Impact</a>
+          <a href="#farmers">Farmers</a>
           <a href="#gallery">Gallery</a>
+          <a href="#blog">Blog</a>
           <a href="#contact" class="cta">Contact</a>
         </div>
-        <button class="hamburger" aria-label="menu">☰</button>
+        <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
       </nav>
 
       <div class="hero">
@@ -203,22 +207,20 @@
       <div class="section-title"><h2>Partnerships & Clients</h2></div>
       <div class="card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
         <div style="flex:1;min-width:200px">Trusted by cooperatives, NGOs and private sector buyers seeking traceable, quality agricultural produce.</div>
-       <!-- 
-        <div style="display:flex;gap:12px;align-items:center">
-          <div style="width:80px;height:40px;background:#fff;border-radius:6px;display:grid;place-items:center"><img src="./images/volcano logo.png"/></div>
-          <div style="width:80px;height:40px;background:#fff;border-radius:6px;display:grid;place-items:center"><img src="./images/uganda-quality-coffee-traders-and-processors-assoc-seeklogo.png"/></div>
-          <div style="width:80px;height:40px;background:#fff;border-radius:6px;display:grid;place-items:center"><img src="./images/ppda-public-procurement-disposal-of-public-asset-seeklogo.png"/></div>
-          <div style="width:80px;height:40px;background:#fff;border-radius:6px;display:grid;place-items:center"><img src="./images/ppda-public-procurement-disposal-of-public-asset-seeklogo.png"/></div>
-          <div style="width:80px;height:40px;background:#fff;border-radius:6px;display:grid;place-items:center"><img src="./images/zinunula logo.jpeg"/></div>
-          
-        </div> -->
+        
+        <div class="gallery-grid" aria-hidden="false">
+          <img  src="./images/uganda-coffee-development-authority-ucda-seeklogo.png" alt="coffee farm">
+        <img  src="./images/zinunula logo.jpeg" alt="dairy cows">
+        <img  src="./images/volcano logo.png" alt="farmers">
+        <img  src="./images/uganda-quality-coffee-traders-and-processors-assoc-seeklogo.png" alt="plant">
+        </div>
      
-      <div class="gallery-grid" aria-hidden="false">
+      <!--<div class="gallery-grid" aria-hidden="false">
         <img style="width:fit-content;" src="./images/uganda-coffee-development-authority-ucda-seeklogo.png" alt="coffee farm">
         <img style="width:fit-content;" src="./images/zinunula logo.jpeg" alt="dairy cows">
         <img style="width:fit-content;" src="./images/volcano logo.png" alt="farmers">
         <img style="width:fit-content;" src="./images/uganda-quality-coffee-traders-and-processors-assoc-seeklogo.png" alt="plant">
-      </div>
+      </div>-->
     </section>
 
     <!-- Contact -->
@@ -266,6 +268,24 @@
       <div style="font-size:13px;color:#cfe7d7">© 2025 Xipton Group (U) Ltd. All rights reserved.</div>
     </div>
   </footer>
+<script>
+      // Find the button and the menu
+      const toggleButton = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
 
-</body>
+      // Add the click listener
+      toggleButton.addEventListener('click', () => {
+        // Toggle the 'menu-active' class on the menu element
+        mobileMenu.classList.toggle('menu-active');
+      });
+
+      // Optional: Close the menu when a link is clicked
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('menu-active');
+        });
+      });
+    </script>
+  </body>
 </html>
+
