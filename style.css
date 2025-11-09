@@ -15,12 +15,16 @@
   *{
       box-sizing:border-box;
   }
+  html{
+    scroll-behavior: smooth;
+  }
   body{
       margin:0;
       background:linear-gradient(180deg,var(--tan),#fff);
       color:var(--dark);
       line-height:1.6;
   }
+
   a{
       color:var(--tan);
       font-weight: bold;
@@ -101,6 +105,10 @@
       border:0;
       cursor:pointer;
       font-weight:700;
+  }
+  .btn:hover{
+    background-color: var(--dark);
+    color:var(--tan);
   }
   .btn-primary{
       background:var(--green-700);
@@ -184,7 +192,7 @@
   .footer a{color:#bfe8c9; padding:5px; border-radius:5px;} /* Added padding to footer links for better touch targets */
 
   /* Responsive */
-  @media (max-width:1119px){
+  @media (max-width:1120px){
     /* Adjusted Hero for tablets/smaller desktops */
     .hero{
       grid-template-columns:1fr;
@@ -196,33 +204,102 @@
     .hero h1{
       font-size:32px; /* Adjusted font size */
     }
+    
     /* General layout adjustments */
     .gallery-grid{grid-template-columns:repeat(2,1fr)}
     .grid-3{grid-template-columns:1fr}
     .grid-2{grid-template-columns:1fr}
-    .values{flex-direction:column;} /* Stack mission values on smaller screens */
     .impact-list{flex-direction:column;} /* Stack impact items on smaller screens */
-  }
+  
+  
+    }
+ 
+  
+  /*mobile phone responsiveness*/
+  /* for mobile portrait*/
+  @media (max-width:1119px){
 
-  @media (max-width:640px){
-    /* Mobile-first adjustments for navigation */
-       .hamburger{display:block;}
+     header{display: flex;
+        padding:40px 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+     /* General spacing and font-size for small screens */
+     .container{padding:0 15px;
+        display: flex;
+    justify-content: center;
+        flex-wrap: wrap;
+        text-align: justify;
+    }
+    .main-nav{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo{
+        display:flex;
+       
+        justify-content: space-between;
+    }
+
     .logo img {
         height: 60px; /* Mobile size */
     }
+    /* Mobile-first adjustments for navigation */
+    .hamburger{ display:block;
+    }
+      
+    .hero h1{
+        font-size:25px;
+        line-height: normal;
+        margin: 20px 10px;
+        text-align: justify;
+        text-transform:uppercase;
+    }
+    .about{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: justify;
+    }
+    .pilld{ display:flex; justify-content: center;
+
+    }
+    .container.section-title{
+        margin: auto;
+        color: var(--dark);
+    }
     
-    /* General spacing and font-size for small screens */
-    header{padding:40px 15px;}
-    .container{padding:0 15px;}
+    .values{ display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .value{
+         border: solid var(--orange);
+
+    }
+   
     section{padding:30px 0;}
-    .hero h1{font-size:28px;}
-    .hero .actions{flex-direction:column; gap:10px;} /* Stack hero buttons */
+    .section-title{
+        justify-content: center;
+        text-transform: uppercase;
+        background-color: var(--dark);
+        border-radius: 10px;
+        color:var(--lightyellow);
+        padding: 10px;
+    }
+   
+    .hero .actions{flex-direction:row; 
+        justify-content: center;
+        gap:10px;}
     .hero .actions a{text-align:center;}
     
     /* Partnership/Gallery Grid adjustment (NEW) */
   .gallery-grid{
-    grid-template-columns:1fr; /* Stack logos vertically for mobile phones */
+    grid-template-columns:2fr; /* Stack logos vertically for mobile phones */
     gap: 20px; /* Increase vertical gap for spacing */
+  }
+  #sustainability{
+text-align: justify;
   }
     /* Image and form adjustments */
     .gallery-grid img{height: auto; /* Allow image height to be natural */
@@ -233,14 +310,14 @@
 
     /* Service card adjustment for stacking content */
     .card.service{
-      flex-direction:column;
+      flex-direction:row;
       align-items:center;
-      text-align:center;
+      text-align:justify;
     }
     .card.service img{
       width:100%;
       max-width:100px;
-      height:auto;
+      height:100%;
       margin-bottom:10px;
     }
     .card.service div h3{
@@ -254,7 +331,7 @@
       gap:15px;
     }
     .footer nav{
-      flex-direction:column;
+      flex-direction:row;
       gap:5px;
     }
     .footer a{
@@ -262,6 +339,7 @@
     }
     /* Navigation Menu Setup (New Styles) */
     .nav-links{
+        display: flex !important; /* Forces menu to be visible on desktop */
         position: absolute;
         top: 100px; /* Adjust based on header height, 100px is a good guess */
         left: 0;
@@ -269,7 +347,7 @@
         background: var(--dark); /* Use a dark background to make links stand out */
         flex-direction: column;
         text-align: center;
-        padding: 20px 0;
+        padding: 0px 0px;
         z-index: 100;
         /* HIDE THE MENU by default (off-screen or height 0) */
         height: 0;
@@ -280,7 +358,7 @@
     /* Styles for when the menu is active */
     .nav-links.menu-active {
         /* Set a height large enough to show all links */
-        height: 300px; /* Adjust this value if needed */
+        height: 300px; 
     }
 
     /* Ensure links inside the dropdown are block elements */
@@ -311,14 +389,6 @@
 }
 
 
-
-/* Ensure the menu is always a flex row on desktop/tablet */
-@media (min-width: 641px) {
-    .nav-links {
-        display: flex !important; /* Forces menu to be visible on desktop */
-    }
-
-  }
 
   /* small helpers */
   .muted{color:var(--muted)}

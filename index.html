@@ -20,9 +20,12 @@
 <body>
   <header>
     <div class="container">
-      <nav>
+      <nav class="main-nav">
         <div class="logo">
-         <img src="./images/Xipton logo1.png"/>
+         <img src="./images/Xipton logo main.png"/>
+          <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
         </div>
         <div class="nav-links" id="mobile-menu">
           <a href="#about">About</a>
@@ -33,16 +36,16 @@
           <a href="#blog">Blog</a>
           <a href="#contact" class="cta">Contact</a>
         </div>
-        <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation">
-            ☰
-        </button>
+       
       </nav>
 
       <div class="hero">
         <div>
-          <span class="pill">Uganda • Coffee & Dairy</span>
-          <h1>Empowering Uganda’s Agriculture — From Coffee to Dairy Excellence</h1>
-          <p style="max-width:56ch">Xipton Group (U) Ltd specializes in coffee parchment processing and sustainable dairy farming. We add value to local produce, train & empower farmers, and promote responsible, community-centered agricultural practices.</p>
+          <div class="pilld">
+            <span class="pill">Uganda • Coffee & Dairy Experts</span>
+          </div>
+                    <h1>Empowering Uganda’s Agriculture — From Coffee to Dairy Excellence</h1>
+          <p style="line-height: normal;">Xipton Group (U) Ltd specializes in coffee parchment processing and sustainable dairy farming. We add value to local produce, train & empower farmers, and promote responsible, community-centered agricultural practices.</p>
           <div class="actions">
             <a href="#about" class="btn btn-primary">Learn More</a>
             <a href="#services" class="btn btn-ghost">Explore Our Work</a>
@@ -60,9 +63,9 @@
             <li>Focus: Value addition, sustainability & community</li>
             <li>Contact: info@xiptongroupuganda.com</li>
           </ul>
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <a href="#contact" class="btn" style="border:1px solid #e6e6e6">Get in Touch</a>
-            <a href="#gallery" class="btn" style="background:#f7f7f7">View Gallery</a>
+          <div style="display:flex;gap:8px; justify-content: center; margin-top:12px">
+            <a href="#contact" class="btn"; style="border:1px solid #e6e6e6">Get in Touch</a>
+           <!-- <a href="#gallery" class="btn" style="background:#f7f7f7">View Gallery</a>-->
           </div>
         </aside>
       </div>
@@ -96,7 +99,7 @@
 
     <!-- Services -->
     <section id="services">
-      <div class="section-title"><h2>Our Divisions</h2></div>
+      <div class="section-title"><h2>OUR SERVICES</h2></div>
       <div class="grid-2">
         <div class="card service">
           <img src="images/shutterstock_1939531555-1.jpg" alt="Coffee processing">
