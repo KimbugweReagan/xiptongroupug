@@ -39,7 +39,7 @@
       padding:56px 20px;
   }
   .container{
-      max-width:1100px;
+     
       margin:0 auto;
       padding:0 20px;
       
@@ -67,6 +67,15 @@
       display:flex;
       gap:18px;
       align-items:center;
+  }
+  .nav-links a:hover{
+background-color: var(--dark);
+    color:var(--tan);
+    
+  }
+   .btn:hover{
+    background-color: var(--dark);
+    color:var(--tan);
   }
   .cta{
       background:#fff;
@@ -171,7 +180,11 @@
 
   /* Services */
   .service{display:flex;gap:14px;align-items:flex-start}
-  .service img{width:84px;height:84px;border-radius:10px;object-fit:cover}
+  .service img{
+    width:84px;
+    height:100%;
+    border-radius:10px;
+    object-fit:cover}
 
   /* Impact */
   .impact-list{display:flex;gap:12px}
@@ -190,6 +203,11 @@
   input,textarea{padding:12px;border-radius:8px;border:1px solid #e6e6e6}
   .footer{background:#06141a;color:#d5e7df;padding:24px 0;margin-top:20px}
   .footer a{color:#bfe8c9; padding:5px; border-radius:5px;} /* Added padding to footer links for better touch targets */
+
+  section a:hover, footer a:hover{
+background-color: var(--dark);
+    color:var(--tan);
+  }
 
   /* Responsive */
   @media (max-width:1120px){
