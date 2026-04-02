@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
 
   <!-- seo metas -->
-  <title>Xipton Group (U) Ltd | Coffee and Dairy Processing, farmers, traders in Uganda | coffee | coffee farmers in uganda | coffee traders in uganda</title>
+  <title>Xipton Group (U) Ltd </title>
+  <!-- <title>Xipton Group (U) Ltd | Coffee and Dairy Processing, farmers, and traders in Uganda | coffee | coffee farmers in uganda | coffee traders in uganda</title>-->
   <meta name="description" content="Xipton Group (U) Ltd specializes in coffee parchment processing and dairy farming in Uganda. We add value to coffee and promote sustainable agriculture. Sustainability, quality and community empowerment.">
   <meta name="keywords" content="coffee processing Uganda, dairy farming Uganda, coffee exporters Uganda, milk production Uganda, agricultural companies Uganda, Xipton Group">
   <meta name="author" content="Xipton Group (U) Ltd">
@@ -244,7 +245,7 @@
           </ul>
           <div style="margin-top:12px"><a href="#">Find us on Map →</a></div>
         </div>
-        <div class="card">
+        <!--<div class="card">
           <h4>Send a message</h4>
           <form onsubmit="event.preventDefault();alert('Thank you! Your message has been received.');">
             <input type="text" name="name" placeholder="Your name" required />
@@ -254,7 +255,26 @@
             <button class="btn btn-primary full" type="submit">Send Message</button>
             
           </form>
-        </div>
+        </div>-->
+
+        <div class="card">
+          <h4>Send a message</h4>
+          <form action="https://api.web3forms.com/submit" method="POST">
+    
+            <input type="hidden" name="access_key" value="e409f5a7-8402-43d2-9ddd-7253d547ab4b">
+
+            <input type="hidden" name="redirect" value="https://xiptongroupuganda.com/#contact">
+
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Email address" required />
+    
+             <input class="full" type="text" name="subject" placeholder="Subject" required />
+    
+             <textarea class="full" name="message" rows="5" placeholder="Your message" required></textarea>
+    
+             <button class="btn btn-primary full" type="submit">Send Message</button>
+          </form>
+</div>
       </div>
     </section>
   </main>
