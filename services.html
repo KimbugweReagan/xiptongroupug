@@ -17,10 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="interior-page services-page">
+<body>
   <div class="grain" aria-hidden="true"></div>
-
-  <header id="site-header">
+<header id="site-header">
     <div class="container">
       <nav class="main-nav">
         <div class="logo">
@@ -30,9 +29,9 @@
           </button>
         </div>
         <div class="nav-links" id="mobile-menu">
-          <a href="index.html"><span>Home</span></a>
+          <a href="index.html" class="active-link"><span>Home</span></a>
           <a href="about.html"><span>About</span></a>
-          <a href="services.html" class="active-link"><span>Services</span></a>
+          <a href="services.html"><span>Services</span></a>
           <a href="sustainability.html"><span>Impact</span></a>
           <a href="farmers.html"><span>Farmers</span></a>
           <a href="facilities.html"><span>Facilities</span></a>
@@ -43,18 +42,22 @@
     </div>
   </header>
 
-  <div class="page-hero hero-services">
+
+  <div class="page-hero hero--services">
     <div class="hero-media">
-      <video autoplay muted loop playsinline preload="metadata" data-bgvideo src="https://assets.mixkit.co/videos/21577/21577-360.mp4"></video>
+      <img src="images/hero-services-roasting.jpg" alt="Coffee parchment being processed">
+      <img src="images/hero-services-dairy.jpg" alt="Fresh milk jug on the dairy estate">
     </div>
-
-
-
-    <div class="hero-inner container">
+    <div class="hero-seam" aria-hidden="true"></div>
+<div class="hero-inner container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Services</div>
       <div class="eyebrow-pill"><span class="dot"></span>What We Do</div>
       <h1>From Parchment<br>to Pasture</h1>
       <p class="lede">Two disciplined crafts, one standard of quality &mdash; explore how we process coffee and manage our dairy herd.</p>
+    </div>
+    <div class="hero-duo-tags">
+      <span class="hero-chip"><i class="fa-solid fa-mug-saucer" style="color:var(--gold-light)"></i>Coffee Processing</span>
+      <span class="hero-chip"><i class="fa-solid fa-cow" style="color:#9fd3a5"></i>Dairy Farming</span>
     </div>
   </div>
 
@@ -203,11 +206,12 @@
       </div>
     </section>
 
+
     <!-- Visual showcase -->
     <section class="visual-showcase visual-services" aria-label="How Xipton services create value">
       <div class="container">
         <div class="split-visual reveal">
-          <div class="split-visual-media"><img src="./images/roasting-coffee-beans.jpg" alt="Coffee being processed" loading="lazy"></div>
+          <div class="split-visual-media"><img class="img-reveal" src="./images/hero-services-roasting.jpg" alt="Coffee being processed" loading="lazy"></div>
           <div class="split-visual-copy">
             <span class="eyebrow">The Craft</span>
             <h2>How Value Is Built</h2>
@@ -220,9 +224,23 @@
           </div>
         </div>
         <div class="visual-duo reveal">
-          <div class="duo-image"><img src="./images/Coffee-Beans-For-Long-Term-Storage.webp" alt="Stored coffee beans" loading="lazy"><span>Storage discipline</span></div>
-          <div class="duo-image"><img src="./images/freshmilk_4c782fa0-0ba2-4eab-81c3-21707b7b9819.webp" alt="Fresh milk" loading="lazy"><span>Fresh dairy</span></div>
+          <div class="duo-image"><img class="img-reveal" src="./images/Coffee-Beans-For-Long-Term-Storage.webp" alt="Stored coffee beans" loading="lazy"><span>Storage discipline</span></div>
+          <div class="duo-image"><img class="img-reveal" src="./images/freshmilk_4c782fa0-0ba2-4eab-81c3-21707b7b9819.webp" alt="Fresh milk" loading="lazy"><span>Fresh dairy</span></div>
         </div>
+      </div>
+    </section>
+
+
+    <section class="page-end-extension reveal" aria-label="Choose the right Xipton service">
+      <div class="container">
+        <div class="page-end-grid">
+          <div class="page-end-intro">
+            <span class="eyebrow">Work With Us</span>
+            <h2>One Operation, Two Agricultural Strengths</h2>
+            <p>Whether your focus is coffee processing, dairy production or a wider agricultural partnership, our team is ready to discuss practical requirements and next steps.</p>
+            <a href="contact.html" class="btn btn-primary">Discuss Your Needs</a>
+          </div>
+          <div class="page-end-cards page-end-cards-image"><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/hero-services-roasting.jpg" alt="" loading="lazy"></div><span>01</span><h3>Coffee</h3><p>Processing and storage practices designed around consistency and product care.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/freshmilk_4c782fa0-0ba2-4eab-81c3-21707b7b9819.webp" alt="" loading="lazy"></div><span>02</span><h3>Dairy</h3><p>Animal care, hygiene and dependable milk production built into daily operations.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/Coffee-Beans-For-Long-Term-Storage.webp" alt="" loading="lazy"></div><span>03</span><h3>Partnership</h3><p>Clear conversations around volumes, standards, buyers and long-term collaboration.</p></article></div></div>
       </div>
     </section>
 
@@ -238,7 +256,7 @@
     </div>
 
     <div class="container footer-top">
-      <div class="footer-brand-logo"><img src="./images/xipton-footer-logo.png" alt="Xipton Group logo" class="footer-logo"></div>
+      <div class="footer-wordmark"><span>Xipton</span><span class="ol">Group</span></div>
       <div class="footer-newsletter">
         <span class="footer-heading">Stay in the loop</span>
         <p>Harvest updates, dairy news and partnership opportunities &mdash; straight to your inbox.</p>
@@ -297,11 +315,27 @@
     <div class="container footer-bottom">
       <span>&copy; 2026 Xipton Group (U) Ltd. All rights reserved.</span>
       <span class="footer-signature">Grown, processed &amp; poured in Uganda</span>
-      <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
     </div>
   </footer>
 
   <script>
+
+    /* Active navigation state */
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const links = document.querySelectorAll('.nav-links a[href]');
+      links.forEach(link => link.classList.remove('active-link'));
+      let target = current;
+      if (current === 'post-coffee-quality.html' || current === 'post-women-dairy.html') target = 'news.html';
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('#')[0].split('?')[0].toLowerCase();
+        if (href === target) {
+          link.classList.add('active-link');
+          link.setAttribute('aria-current','page');
+        }
+      });
+    })();
+
     const toggleButton = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     if (toggleButton && mobileMenu) {
@@ -390,12 +424,37 @@
         answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : null;
       });
     });
-    // Mark only the current page as active.
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      const target = link.getAttribute('href').split('#')[0];
-      link.classList.toggle('active-link', target === currentPage);
-    });
+
+
+    /* Premium motion enhancements */
+    (function(){
+
+      if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        const glow=document.createElement('div'); glow.className='cursor-glow'; document.body.appendChild(glow);
+        let gx=-500,gy=-500,tx=gx,ty=gy;
+        window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;},{passive:true});
+        const move=()=>{gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(move)}; move();
+
+        document.querySelectorAll('.btn,.cta').forEach(el=>{
+          el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`});
+          el.addEventListener('pointerleave',()=>el.style.transform='');
+        });
+
+        document.querySelectorAll('.img-reveal').forEach(el=>{
+          if(!el.classList.contains('reveal') && 'IntersectionObserver' in window){
+            const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){el.classList.add('is-visible');o.unobserve(el)}}),{threshold:.18});o.observe(el);
+          }
+        });
+      }
+
+      /* Gentle image parallax for elements explicitly marked .parallax-img */
+      const parallax=document.querySelectorAll('.parallax-img');
+      if(parallax.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        let ticking=false;
+        const run=()=>{parallax.forEach(img=>{const r=img.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const p=(innerHeight-r.top)/(innerHeight+r.height)-.5;img.style.transform=`scale(1.05) translateY(${p*24}px)`;}});ticking=false};
+        window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(run);ticking=true}},{passive:true});run();
+      }
+    })();
   </script>
 
 </body>

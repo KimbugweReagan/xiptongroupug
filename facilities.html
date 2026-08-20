@@ -17,10 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="interior-page facilities-page">
+<body>
   <div class="grain" aria-hidden="true"></div>
-
-  <header id="site-header">
+<header id="site-header">
     <div class="container">
       <nav class="main-nav">
         <div class="logo">
@@ -30,12 +29,12 @@
           </button>
         </div>
         <div class="nav-links" id="mobile-menu">
-          <a href="index.html"><span>Home</span></a>
+          <a href="index.html" class="active-link"><span>Home</span></a>
           <a href="about.html"><span>About</span></a>
           <a href="services.html"><span>Services</span></a>
           <a href="sustainability.html"><span>Impact</span></a>
           <a href="farmers.html"><span>Farmers</span></a>
-          <a href="facilities.html" class="active-link"><span>Facilities</span></a>
+          <a href="facilities.html"><span>Facilities</span></a>
           <a href="news.html"><span>Blog</span></a>
           <a href="contact.html" class="cta">Contact</a>
         </div>
@@ -43,14 +42,16 @@
     </div>
   </header>
 
-  <div class="page-hero hero-facilities">
+
+  <div class="page-hero hero--facilities">
     <div class="hero-media">
-      <video autoplay muted loop playsinline preload="metadata" data-bgvideo src="https://assets.mixkit.co/videos/21577/21577-360.mp4"></video>
+      <img src="images/hero-facilities-warehouse.jpg" alt="Coffee parchment bags stacked inside the Xipton Group warehouse">
     </div>
-
-   
-
-    <div class="hero-inner container">
+    <figure class="hero-inset-photo">
+      <img src="images/hero-services-roasting.jpg" alt="Coffee parchment ready for dispatch">
+      <figcaption>Processing Yard</figcaption>
+    </figure>
+<div class="hero-inner container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Facilities</div>
       <div class="eyebrow-pill"><span class="dot"></span>Where It Happens</div>
       <h1>Built for Consistency,<br>Batch After Batch</h1>
@@ -159,15 +160,17 @@
       </div>
     </section>
 
-    <!-- Visual showcase -->
-    <section class="visual-showcase visual-facilities" aria-label="Inside Xipton facilities">
+
+    <section class="page-end-extension page-end-dark reveal" aria-label="Facility standards">
       <div class="container">
-        <div class="facility-intro reveal"><span class="eyebrow">Inside the Operation</span><h2>Where Consistency Is Made</h2><p>Good facilities do not need to shout. They need to make the right action easy, repeatable and measurable.</p></div>
-        <div class="facility-gallery">
-          <figure class="facility-feature reveal"><img src="./images/roasting-coffee-beans.jpg" alt="Coffee processing area" loading="lazy"><figcaption><span>Processing</span><strong>Controlled handling</strong><p>Every stage is organised around protecting quality from intake onward.</p></figcaption></figure>
-          <figure class="facility-small reveal"><img src="./images/Coffee-Beans-For-Long-Term-Storage.webp" alt="Coffee storage" loading="lazy"><figcaption><span>Storage</span><strong>Product protection</strong></figcaption></figure>
-          <figure class="facility-small reveal"><img src="./images/WhatsApp Image 2025-09-13 at 15.12.02_c34fdd45.jpg" alt="Xipton operational setting" loading="lazy"><figcaption><span>Operations</span><strong>Ready for dispatch</strong></figcaption></figure>
-        </div>
+        <div class="page-end-grid">
+          <div class="page-end-intro">
+            <span class="eyebrow">Inside the Operation</span>
+            <h2>Consistency Is Designed Into the Workflow</h2>
+            <p>From intake and storage to handling and dispatch, our facilities support practical control points that help protect quality and keep operations moving.</p>
+            <a href="contact.html" class="btn btn-primary">Arrange a Visit</a>
+          </div>
+          <div class="page-end-cards page-end-cards-image"><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/hero-facilities-warehouse.jpg" alt="" loading="lazy"></div><span>01</span><h3>Intake</h3><p>Products enter the operation with attention to identification, condition and handling.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/Coffee-Beans-For-Long-Term-Storage.webp" alt="" loading="lazy"></div><span>02</span><h3>Storage</h3><p>Organised storage helps protect product integrity and operational readiness.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/freshmilk_4c782fa0-0ba2-4eab-81c3-21707b7b9819.webp" alt="" loading="lazy"></div><span>03</span><h3>Dispatch</h3><p>Clear preparation supports dependable movement to buyers and partners.</p></article></div></div>
       </div>
     </section>
 
@@ -183,7 +186,7 @@
     </div>
 
     <div class="container footer-top">
-      <div class="footer-brand-logo"><img src="./images/xipton-footer-logo.png" alt="Xipton Group logo" class="footer-logo"></div>
+      <div class="footer-wordmark"><span>Xipton</span><span class="ol">Group</span></div>
       <div class="footer-newsletter">
         <span class="footer-heading">Stay in the loop</span>
         <p>Harvest updates, dairy news and partnership opportunities &mdash; straight to your inbox.</p>
@@ -242,11 +245,27 @@
     <div class="container footer-bottom">
       <span>&copy; 2026 Xipton Group (U) Ltd. All rights reserved.</span>
       <span class="footer-signature">Grown, processed &amp; poured in Uganda</span>
-      <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
     </div>
   </footer>
 
   <script>
+
+    /* Active navigation state */
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const links = document.querySelectorAll('.nav-links a[href]');
+      links.forEach(link => link.classList.remove('active-link'));
+      let target = current;
+      if (current === 'post-coffee-quality.html' || current === 'post-women-dairy.html') target = 'news.html';
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('#')[0].split('?')[0].toLowerCase();
+        if (href === target) {
+          link.classList.add('active-link');
+          link.setAttribute('aria-current','page');
+        }
+      });
+    })();
+
     const toggleButton = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     if (toggleButton && mobileMenu) {
@@ -301,12 +320,6 @@
       staggerEls.forEach(el => el.classList.add('is-visible'));
     }
 
-
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-
     const counters = document.querySelectorAll('.stat-num[data-count]');
     if (counters.length && 'IntersectionObserver' in window) {
       const cio = new IntersectionObserver((entries) => {
@@ -341,12 +354,37 @@
         answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : null;
       });
     });
-    // Mark only the current page as active.
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      const target = link.getAttribute('href').split('#')[0];
-      link.classList.toggle('active-link', target === currentPage);
-    });
+
+
+    /* Premium motion enhancements */
+    (function(){
+
+      if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        const glow=document.createElement('div'); glow.className='cursor-glow'; document.body.appendChild(glow);
+        let gx=-500,gy=-500,tx=gx,ty=gy;
+        window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;},{passive:true});
+        const move=()=>{gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(move)}; move();
+
+        document.querySelectorAll('.btn,.cta').forEach(el=>{
+          el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`});
+          el.addEventListener('pointerleave',()=>el.style.transform='');
+        });
+
+        document.querySelectorAll('.img-reveal').forEach(el=>{
+          if(!el.classList.contains('reveal') && 'IntersectionObserver' in window){
+            const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){el.classList.add('is-visible');o.unobserve(el)}}),{threshold:.18});o.observe(el);
+          }
+        });
+      }
+
+      /* Gentle image parallax for elements explicitly marked .parallax-img */
+      const parallax=document.querySelectorAll('.parallax-img');
+      if(parallax.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        let ticking=false;
+        const run=()=>{parallax.forEach(img=>{const r=img.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const p=(innerHeight-r.top)/(innerHeight+r.height)-.5;img.style.transform=`scale(1.05) translateY(${p*24}px)`;}});ticking=false};
+        window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(run);ticking=true}},{passive:true});run();
+      }
+    })();
   </script>
 
 </body>

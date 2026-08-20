@@ -22,7 +22,7 @@
   <!--styling-->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="home-page home-page-v2">
+<body>
 
   <div class="grain-overlay" aria-hidden="true"></div>
 
@@ -335,6 +335,20 @@
   </main1>
 
 
+
+    <section class="page-end-extension reveal" aria-label="Why work with Xipton Group">
+      <div class="container">
+        <div class="page-end-grid">
+          <div class="page-end-intro">
+            <span class="eyebrow">The Xipton Approach</span>
+            <h2>Built Around Reliable Agricultural Value</h2>
+            <p>We connect practical farm operations, careful processing and dependable partnerships so good agricultural products can move with confidence from Uganda to the people and businesses that need them.</p>
+            <a href="about.html" class="btn btn-secondary">Discover Xipton</a>
+          </div>
+          <div class="page-end-cards page-end-cards-image"><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/hero-farmers-hands.jpg" alt="" loading="lazy"></div><span>01</span><h3>Quality First</h3><p>Clear standards help protect product value from the farm through processing.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/hero-services-roasting.jpg" alt="" loading="lazy"></div><span>02</span><h3>Local Roots</h3><p>Our work stays connected to Ugandan farmers, communities and agricultural realities.</p></article><article class="image-card"><div class="image-card-media"><img class="img-reveal" src="./images/hero-about-cherries.jpg" alt="" loading="lazy"></div><span>03</span><h3>Long-Term Partners</h3><p>We build relationships around consistency, communication and shared growth.</p></article></div></div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer footer-xl">
@@ -348,7 +362,7 @@
     </div>
 
     <div class="container footer-top">
-      <div class="footer-brand-logo"><img src="./images/xipton-footer-logo.png" alt="Xipton Group logo" class="footer-logo"></div>
+      <div class="footer-wordmark"><span>Xipton</span><span class="ol">Group</span></div>
       <div class="footer-newsletter">
         <span class="footer-heading">Stay in the loop</span>
         <p>Harvest updates, dairy news and partnership opportunities &mdash; straight to your inbox.</p>
@@ -407,12 +421,28 @@
     <div class="container footer-bottom">
       <span>&copy; 2026 Xipton Group (U) Ltd. All rights reserved.</span>
       <span class="footer-signature">Grown, processed &amp; poured in Uganda</span>
-      <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
     </div>
   </footer>
 
   <script>
     
+
+    /* Active navigation state */
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const links = document.querySelectorAll('.nav-links a[href]');
+      links.forEach(link => link.classList.remove('active-link'));
+      let target = current;
+      if (current === 'post-coffee-quality.html' || current === 'post-women-dairy.html') target = 'news.html';
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('#')[0].split('?')[0].toLowerCase();
+        if (href === target) {
+          link.classList.add('active-link');
+          link.setAttribute('aria-current','page');
+        }
+      });
+    })();
+
     const toggleButton = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     toggleButton.addEventListener('click', () => {

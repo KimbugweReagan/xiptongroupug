@@ -17,10 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="interior-page news-page">
+<body>
   <div class="grain" aria-hidden="true"></div>
-
-  <header id="site-header">
+<header id="site-header">
     <div class="container">
       <nav class="main-nav">
         <div class="logo">
@@ -30,30 +29,32 @@
           </button>
         </div>
         <div class="nav-links" id="mobile-menu">
-          <a href="index.html"><span>Home</span></a>
+          <a href="index.html" class="active-link"><span>Home</span></a>
           <a href="about.html"><span>About</span></a>
           <a href="services.html"><span>Services</span></a>
           <a href="sustainability.html"><span>Impact</span></a>
           <a href="farmers.html"><span>Farmers</span></a>
           <a href="facilities.html"><span>Facilities</span></a>
-          <a href="news.html" class="active-link"><span>Blog</span></a>
+          <a href="news.html"><span>Blog</span></a>
           <a href="contact.html" class="cta">Contact</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <div class="page-hero hero-news">
+
+  <div class="page-hero hero--news">
     <div class="hero-media">
-      <video autoplay muted loop playsinline preload="metadata" data-bgvideo src="https://assets.mixkit.co/videos/21577/21577-360.mp4"></video>
+      <img src="images/hero-news-mosaic-1.jpg" alt="Roasted coffee beans">
+      <img src="images/hero-news-mosaic-2.jpg" alt="Dairy cow in the field">
+      <img src="images/hero-news-mosaic-3.jpg" alt="Coffee farm landscape">
+      <img src="images/hero-news-mosaic-4.jpg" alt="Herd of dairy cows on pasture">
     </div>
-
- 
-
-    <div class="hero-inner container">
+<div class="hero-inner container">
       <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Blog</div>
       <div class="eyebrow-pill"><span class="dot"></span>Latest</div>
       <h1>News &amp; Updates</h1>
+      <div class="hero-masthead-rule" aria-hidden="true"></div>
       <p class="lede">Stories from our processing yard, our dairy estate, and the farming communities we work with.</p>
     </div>
   </div>
@@ -127,17 +128,6 @@
       </div>
     </section>
 
-    <!-- Visual showcase -->
-    <section class="visual-showcase visual-news" aria-label="Xipton field notes">
-      <div class="container editorial-visual">
-        <div class="editorial-lead reveal"><img src="./images/How do environmental factors affect coffee beans.jpg" alt="Coffee and environmental factors" loading="lazy"><div><span class="eyebrow">Field Notes</span><h2>Stories Worth Following</h2><p>From changing field conditions to practical dairy knowledge, the details behind agriculture deserve a closer look.</p><a class="link-arrow" href="post-coffee-quality.html">Read the coffee story <span class="a">&rarr;</span></a></div></div>
-        <div class="editorial-stack">
-          <article class="editorial-card reveal"><img src="./images/myths-about-cows-milk.jpg" alt="Milk knowledge" loading="lazy"><div><span>01 / Dairy</span><h3>Separate fact from assumption</h3><p>Useful knowledge helps farmers and customers make better choices.</p></div></article>
-          <article class="editorial-card reveal"><img src="./images/Best ways to Store Coffee Beans.jpg" alt="Coffee storage guidance" loading="lazy"><div><span>02 / Coffee</span><h3>Small storage choices matter</h3><p>Freshness can be protected long after the processing floor.</p></div></article>
-        </div>
-      </div>
-    </section>
-
   </main>
   <footer class="footer footer-xl">
     <div class="footer-thread" aria-hidden="true"></div>
@@ -150,7 +140,7 @@
     </div>
 
     <div class="container footer-top">
-      <div class="footer-brand-logo"><img src="./images/xipton-footer-logo.png" alt="Xipton Group logo" class="footer-logo"></div>
+      <div class="footer-wordmark"><span>Xipton</span><span class="ol">Group</span></div>
       <div class="footer-newsletter">
         <span class="footer-heading">Stay in the loop</span>
         <p>Harvest updates, dairy news and partnership opportunities &mdash; straight to your inbox.</p>
@@ -209,11 +199,27 @@
     <div class="container footer-bottom">
       <span>&copy; 2026 Xipton Group (U) Ltd. All rights reserved.</span>
       <span class="footer-signature">Grown, processed &amp; poured in Uganda</span>
-      <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
     </div>
   </footer>
 
   <script>
+
+    /* Active navigation state */
+    (function(){
+      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const links = document.querySelectorAll('.nav-links a[href]');
+      links.forEach(link => link.classList.remove('active-link'));
+      let target = current;
+      if (current === 'post-coffee-quality.html' || current === 'post-women-dairy.html') target = 'news.html';
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('#')[0].split('?')[0].toLowerCase();
+        if (href === target) {
+          link.classList.add('active-link');
+          link.setAttribute('aria-current','page');
+        }
+      });
+    })();
+
     const toggleButton = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     if (toggleButton && mobileMenu) {
@@ -268,11 +274,6 @@
       staggerEls.forEach(el => el.classList.add('is-visible'));
     }
 
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-
     const counters = document.querySelectorAll('.stat-num[data-count]');
     if (counters.length && 'IntersectionObserver' in window) {
       const cio = new IntersectionObserver((entries) => {
@@ -307,12 +308,37 @@
         answer.style.maxHeight = item.classList.contains('open') ? answer.scrollHeight + 'px' : null;
       });
     });
-    // Mark only the current page as active.
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      const target = link.getAttribute('href').split('#')[0];
-      link.classList.toggle('active-link', target === currentPage);
-    });
+
+
+    /* Premium motion enhancements */
+    (function(){
+
+      if(window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        const glow=document.createElement('div'); glow.className='cursor-glow'; document.body.appendChild(glow);
+        let gx=-500,gy=-500,tx=gx,ty=gy;
+        window.addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;},{passive:true});
+        const move=()=>{gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(move)}; move();
+
+        document.querySelectorAll('.btn,.cta').forEach(el=>{
+          el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`});
+          el.addEventListener('pointerleave',()=>el.style.transform='');
+        });
+
+        document.querySelectorAll('.img-reveal').forEach(el=>{
+          if(!el.classList.contains('reveal') && 'IntersectionObserver' in window){
+            const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){el.classList.add('is-visible');o.unobserve(el)}}),{threshold:.18});o.observe(el);
+          }
+        });
+      }
+
+      /* Gentle image parallax for elements explicitly marked .parallax-img */
+      const parallax=document.querySelectorAll('.parallax-img');
+      if(parallax.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        let ticking=false;
+        const run=()=>{parallax.forEach(img=>{const r=img.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const p=(innerHeight-r.top)/(innerHeight+r.height)-.5;img.style.transform=`scale(1.05) translateY(${p*24}px)`;}});ticking=false};
+        window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(run);ticking=true}},{passive:true});run();
+      }
+    })();
   </script>
 
 </body>
